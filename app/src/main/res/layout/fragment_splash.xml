@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ffbe0b"
     android:layout_height="match_parent"
-    tools:context=".SplashFragment">
+    tools:context=".auth.SplashFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +27,7 @@
                 android:id="@+id/tvBlinkit"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_70sdp"
-                android:text="blinkit"
+                android:text="blink"
                 android:textColor="#000000"
                 android:textSize="@dimen/_60ssp"
                 android:textStyle="bold" />

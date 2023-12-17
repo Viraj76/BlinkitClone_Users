@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SingInFragment">
+    android:orientation="vertical"
+    tools:context=".auth.SignInFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Sign IN" />
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <ImageView
+                android:id="@+id/ivLoginImage"
+                android:layout_width="@dimen/_320sdp"
+                android:layout_height="@dimen/_300sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/image_prod" />
 
-</FrameLayout>
+            <ImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/app_icon" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="India's last minute app"
+                android:textStyle="bold"
+                android:textSize="@dimen/_17ssp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Login or sign up"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13ssp"
+                />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                app:boxCornerRadiusBottomEnd="@dimen/_13sdp"
+                app:boxCornerRadiusBottomStart="@dimen/_13sdp"
+                app:boxCornerRadiusTopEnd="@dimen/_13sdp"
+                app:endIconMode="clear_text"
+                app:boxCornerRadiusTopStart="@dimen/_13sdp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUserNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/baseline_local_phone_24"
+                    android:drawablePadding="@dimen/_7sdp"
+                    android:hint="Enter mobile number"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnContinue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:backgroundTint="#8d99ae"
+                android:text="Continue"
+                android:textColor="#FFFFFF"
+                android:textAllCaps="false"
+                app:cornerRadius="@dimen/_8sdp"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</LinearLayout>
