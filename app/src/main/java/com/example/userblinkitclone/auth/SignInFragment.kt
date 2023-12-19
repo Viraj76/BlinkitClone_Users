@@ -25,6 +25,7 @@ class SignInFragment : Fragment() {
         binding = FragmentSingInBinding.inflate(layoutInflater)
         setStatusBarColor()
 
+
         getUserNumber()
 
         onContinueButtonClick()
