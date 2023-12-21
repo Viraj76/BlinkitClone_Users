@@ -1,9 +1,10 @@
 package com.example.userblinkitclone.auth
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.UserManager
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,10 +15,10 @@ import androidx.navigation.fragment.findNavController
 
 import com.example.userblinkitclone.R
 import com.example.userblinkitclone.Utils
+import com.example.userblinkitclone.activity.UsersMainActivity
 import com.example.userblinkitclone.databinding.FragmentOTPBinding
+import com.example.userblinkitclone.models.Users
 import com.example.userblinkitclone.viewmodels.AuthViewModel
-import com.google.firebase.storage.internal.Util
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class OTPFragment : Fragment() {
@@ -35,6 +36,7 @@ class OTPFragment : Fragment() {
         sendOTP()
         onLoginButtonClicked()
         onBackButtonClicked()
+
         return binding.root
     }
 
@@ -55,13 +57,17 @@ class OTPFragment : Fragment() {
     }
 
     private fun verifyOtp(otp: String) {
-        viewModel.signInWithPhoneAuthCredential(otp,userNumber)
 
+        val user = Users(uid = null , userPhoneNumber = userNumber , userAddress = null )
+
+        viewModel.signInWithPhoneAuthCredential(otp,userNumber , user)
         lifecycleScope.launch {
             viewModel.isSignedInSuccessfully.collect{
                 if(it){
                     Utils.hideDialog()
                     Utils.showToast(requireContext() , "Logged In...")
+                    startActivity(Intent(requireActivity() , UsersMainActivity::class.java))
+                    requireActivity().finish()
                 }
             }
         }
