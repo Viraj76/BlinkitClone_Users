@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
         binding  = FragmentHomeBinding.inflate(layoutInflater)
         setStatusBarColor()
         setAllCategories()
+
         return binding.root
     }
 
