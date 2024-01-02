@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.userblinkitclone.databinding.FragmentSingInBinding
 import com.example.userblinkitclone.databinding.ItemViewProductCategoryBinding
 import com.example.userblinkitclone.models.Category
 
-class AdapterCategory (
-    val categoryList : ArrayList<Category>
+class AdapterCategory(
+    val categoryList: ArrayList<Category>,
+    val onCategoryIconClicked: (Category)-> Unit
 ) : RecyclerView.Adapter<AdapterCategory.CategoryViewHolder>() {
     class CategoryViewHolder(val binding: ItemViewProductCategoryBinding) : ViewHolder(binding.root)
 
@@ -26,6 +26,9 @@ class AdapterCategory (
         holder.binding.apply {
             ivCategoryImage.setImageResource(category.image)
             tvCategoryTitle.text = category.title
+        }
+        holder.itemView.setOnClickListener {
+            onCategoryIconClicked(category)
         }
     }
 
