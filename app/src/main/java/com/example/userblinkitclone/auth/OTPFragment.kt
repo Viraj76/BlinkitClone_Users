@@ -2,7 +2,6 @@ package com.example.userblinkitclone.auth
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.UserManager
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -14,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 
 import com.example.userblinkitclone.R
-import com.example.userblinkitclone.Utils
+import com.example.userblinkitclone.utils.Utils
 import com.example.userblinkitclone.activity.UsersMainActivity
 import com.example.userblinkitclone.databinding.FragmentOTPBinding
 import com.example.userblinkitclone.models.Users
@@ -58,7 +57,7 @@ class OTPFragment : Fragment() {
 
     private fun verifyOtp(otp: String) {
 
-        val user = Users(uid = null , userPhoneNumber = userNumber , userAddress = null )
+        val user = Users(uid = null , userPhoneNumber = userNumber , userAddress = "  " )
 
         viewModel.signInWithPhoneAuthCredential(otp,userNumber , user)
         lifecycleScope.launch {
