@@ -4,8 +4,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "CartProducts")
-data class CartProducts(
+@Entity(tableName = "CartProductTable")
+data class CartProductTable(
 
     @PrimaryKey
     val productId : String  = "random", // cant apply nullability check here.
@@ -17,4 +17,5 @@ data class CartProducts(
     var productImage : String ? = null,
     var productCategory : String ? = null,
     var adminUid : String ? = null,
+    var productType : String ? = null,
 )
