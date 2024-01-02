@@ -1,4 +1,6 @@
 package com.example.userblinkitclone.models
 
-class NotificationData {
-}
+data class NotificationData(
+    val title : String ? = null,
+    val body : String ? = null,
+)
