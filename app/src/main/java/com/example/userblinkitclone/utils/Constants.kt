@@ -1,4 +1,6 @@
-package com.example.userblinkitclone
+package com.example.userblinkitclone.utils
+
+import com.example.userblinkitclone.R
 
 object Constants {
 
