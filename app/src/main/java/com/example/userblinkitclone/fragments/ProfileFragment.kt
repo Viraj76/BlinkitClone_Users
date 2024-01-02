@@ -1,59 +1,99 @@
-package com.example.userblinkitclone
+package com.example.userblinkitclone.fragments
 
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.example.userblinkitclone.R
+import com.example.userblinkitclone.utils.Utils
+import com.example.userblinkitclone.activity.AuthMainActivity
+import com.example.userblinkitclone.databinding.AddressBookLayoutBinding
+import com.example.userblinkitclone.databinding.FragmentProfileBinding
+import com.example.userblinkitclone.viewmodels.UserViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentProfileBinding
+    private val viewModel : UserViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+    ): View {
+        binding = FragmentProfileBinding.inflate(layoutInflater)
+        setStatusBarColor()
+        onBackButtonClicked()
+        onOrdersLayoutClicked()
+        onAddressBookClicked()
+        onLogOutClicked()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun onLogOutClicked() {
+        binding.llLogout.setOnClickListener {
+        val builder =    AlertDialog.Builder(requireContext())
+        val alertDialog = builder.create()
+                builder.setTitle("Log out")
+                .setMessage("Do you want to log out ?")
+                .setPositiveButton("Yes"){_,_->
+                    viewModel.logOutUser()
+                    startActivity(Intent(requireContext() , AuthMainActivity::class.java))
+                    requireActivity().finish()
                 }
+                .setNegativeButton("No"){_,_ ->
+                    alertDialog.dismiss()
+                }
+                    .show()
+                    .setCancelable(false)
+        }
+    }
+
+    private fun onAddressBookClicked() {
+        binding.llAddress.setOnClickListener {
+            val addressBookLayoutBinding = AddressBookLayoutBinding.inflate(LayoutInflater.from(requireContext()))
+            viewModel.getUserAddress {address ->
+                addressBookLayoutBinding.etAddress.setText(address.toString())
             }
+            val alertDialog = AlertDialog.Builder(requireContext())
+                .setView(addressBookLayoutBinding.root)
+                .create()
+            alertDialog.show()
+
+            addressBookLayoutBinding.btnEdit.setOnClickListener {
+                addressBookLayoutBinding.etAddress.isEnabled = true
+            }
+            addressBookLayoutBinding.btnSave.setOnClickListener {
+                viewModel.saveAddress(addressBookLayoutBinding.etAddress.text.toString())
+                alertDialog.dismiss()
+                Utils.showToast(requireContext() , "Address updated..")
+            }
+        }
+    }
+
+    private fun onOrdersLayoutClicked() {
+        binding.llOrders.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_ordersFragment)
+        }
+    }
+
+    private fun onBackButtonClicked() {
+        binding.tbProfileFragment.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
+        }
+    }
+
+    private fun setStatusBarColor() {
+        activity?.window?.apply {
+            val statusBarColors = ContextCompat.getColor(requireContext(), R.color.white_yellow)
+            statusBarColor = statusBarColors
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            }
+        }
     }
 }
