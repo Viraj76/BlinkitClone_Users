@@ -1,14 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbProfileFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:titleTextColor="@color/black"
+        android:background="@color/white_yellow"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Profile"/>
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="#DAD4D4"
+        app:layout_constraintTop_toBottomOf="@id/tbProfileFragment"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My account"
+            android:textStyle="bold"
+            android:textSize="@dimen/_18sdp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="9999999999"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="YOUR INFORMATION"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="#6B6C74"
+            />
+        <LinearLayout
+            android:id="@+id/llOrders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:src="@drawable/baseline_backpack_24" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.9"
+                android:layout_height="wrap_content"
+                android:text="Your Orders"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/baseline_chevron_right_24"
+                app:tint="@color/black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_location_city_24"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.9"
+                android:layout_height="wrap_content"
+                android:text="Address Book"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/baseline_chevron_right_24"
+                app:tint="@color/black"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:orientation="horizontal"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_logout_24"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="0.9"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_weight="0.1"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/baseline_chevron_right_24"
+                app:tint="@color/black"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

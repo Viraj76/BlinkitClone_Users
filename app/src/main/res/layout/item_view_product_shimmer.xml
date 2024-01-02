@@ -94,49 +94,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             />
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/llProductCount1"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="30dp"
-                            android:gravity="center"
-                            android:layout_weight="3"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:background="@drawable/bg_product_count"
-                            android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tvDecrementCount1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="-"
-                                android:gravity="center"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-
-                            <TextView
-                                android:id="@+id/tvProductCount1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-
-                            <TextView
-                                android:id="@+id/tvIncrementCount1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="+"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-                        </LinearLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -230,49 +188,7 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             />
-                        <LinearLayout
-                            android:visibility="gone"
-                            android:id="@+id/llProductCount"
-                            android:layout_width="@dimen/_70sdp"
-                            android:layout_height="30dp"
-                            android:gravity="center"
-                            android:layout_weight="3"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:background="@drawable/bg_product_count"
-                            android:orientation="horizontal">
 
-                            <TextView
-                                android:id="@+id/tvDecrementCount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="-"
-                                android:gravity="center"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-
-                            <TextView
-                                android:id="@+id/tvProductCount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="1"
-                                android:gravity="center"
-                                android:layout_weight="1"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-
-                            <TextView
-                                android:id="@+id/tvIncrementCount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="+"
-                                android:layout_weight="1"
-                                android:gravity="center"
-                                android:textColor="#FFFFFF"
-                                android:textSize="@dimen/_15sdp" />
-                        </LinearLayout>
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
