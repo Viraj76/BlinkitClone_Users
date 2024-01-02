@@ -1,4 +1,4 @@
-package com.example.adminblinkitclone.model
+package com.example.userblinkitclone.models
 
 import java.util.UUID
 

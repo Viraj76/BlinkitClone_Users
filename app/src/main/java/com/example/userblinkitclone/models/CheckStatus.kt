@@ -1,4 +1,7 @@
 package com.example.userblinkitclone.models
 
-class CheckStatus {
-}
+data class CheckStatus (
+    val code: String,
+    val message: String,
+    val success: Boolean
+    )
