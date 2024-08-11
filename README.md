@@ -6,7 +6,7 @@
 - [Screenshots](#screenshots)
 
 # Download APK
-[Download APK](https://drive.google.com/file/d/15c2fQW1uzomGy6dCxXuUnfL8ygqNUYsN/view?usp=sharing)
+[Download APK](https://drive.google.com/file/d/1QH747gf3SOqZ9v27W-Kc2cEUoaVTgzFB/view?usp=sharing)
 
 # Admin app
 [Admin app GitHub Repository](https://github.com/Viraj76/BlinkitClone_Admin)
